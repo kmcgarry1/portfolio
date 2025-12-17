@@ -1,0 +1,146 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+    --bg: 248 250 252;
+    --fg: 15 23 42;
+    --muted: 71 85 105;
+    --card: 255 255 255;
+    --border: 226 232 240;
+    --brand: 79 70 229;
+    --accent: 168 85 247;
+  }
+
+  .dark {
+    color-scheme: dark;
+    --bg: 9 9 11;
+    --fg: 244 244 245;
+    --muted: 161 161 170;
+    --card: 24 24 27;
+    --border: 39 39 42;
+    --brand: 99 102 241;
+    --accent: 217 70 239;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+      scroll-snap-type: none;
+    }
+  }
+
+  body {
+    @apply bg-bg text-fg antialiased selection:bg-brand/20 selection:text-fg;
+  }
+}
+
+@layer components {
+  .app-background {
+    background-color: rgb(var(--bg));
+    background-image:
+      radial-gradient(1200px 600px at 20% 0%, rgb(var(--brand) / 0.14) 0%, transparent 60%),
+      radial-gradient(1000px 600px at 90% 10%, rgb(var(--accent) / 0.12) 0%, transparent 55%),
+      linear-gradient(to right, rgb(15 23 42 / 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(15 23 42 / 0.05) 1px, transparent 1px);
+    background-size: auto, auto, 64px 64px, 64px 64px;
+    background-position: center, center, -1px -1px, -1px -1px;
+  }
+
+  .dark .app-background {
+    background-color: rgb(var(--bg));
+    background-image:
+      radial-gradient(1200px 600px at 20% 0%, rgb(var(--brand) / 0.18) 0%, transparent 60%),
+      radial-gradient(1000px 600px at 90% 10%, rgb(var(--accent) / 0.16) 0%, transparent 55%),
+      linear-gradient(to right, rgb(255 255 255 / 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(255 255 255 / 0.05) 1px, transparent 1px);
+    background-size: auto, auto, 64px 64px, 64px 64px;
+    background-position: center, center, -1px -1px, -1px -1px;
+  }
+
+  .screen {
+    min-height: 100vh;
+    min-height: 100svh;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translate3d(0, 18px, 0);
+    transition:
+      opacity 900ms cubic-bezier(0.2, 0.8, 0.2, 1),
+      transform 900ms cubic-bezier(0.2, 0.8, 0.2, 1);
+    transition-delay: var(--reveal-delay, 0ms);
+    will-change: opacity, transform;
+  }
+
+  .reveal.reveal-visible {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal {
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
+    }
+  }
+
+  .container-page {
+    @apply mx-auto w-full max-w-6xl px-6;
+  }
+
+  .card {
+    @apply rounded-2xl border border-border/70 bg-card/70 shadow-soft backdrop-blur;
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-2 rounded-full border border-border bg-bg/60 px-3 py-1 text-xs font-medium text-muted;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2 text-sm font-medium transform-gpu transition-[transform,box-shadow,opacity,background-color,border-color,color,background-position] duration-300 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/40 focus-visible:ring-offset-2 focus-visible:ring-offset-bg active:translate-y-px active:scale-[0.99] disabled:pointer-events-none disabled:opacity-60 disabled:shadow-none;
+  }
+
+  .btn-primary {
+    @apply btn bg-gradient-to-r from-brand via-accent to-brand bg-[length:200%_200%] bg-[position:0%_50%] text-white shadow-soft hover:bg-[position:100%_50%] hover:-translate-y-px hover:shadow-lg;
+  }
+
+  .btn-secondary {
+    @apply btn border border-border bg-card/60 text-fg hover:bg-card/80 hover:-translate-y-px hover:shadow-soft hover:border-muted/40;
+  }
+
+  .btn-ghost {
+    @apply btn text-fg hover:bg-card/70 active:bg-card/90;
+  }
+
+  .pill {
+    @apply btn rounded-full border border-border bg-card/60 px-4 py-2 font-semibold text-fg shadow-soft backdrop-blur hover:bg-card/80 hover:-translate-y-px;
+  }
+
+  .icon-btn {
+    @apply inline-flex items-center justify-center border border-border bg-card/60 text-muted shadow-soft backdrop-blur transform-gpu transition-[transform,box-shadow,background-color,color] duration-300 ease-out hover:bg-card/80 hover:text-fg hover:-translate-y-px active:translate-y-px active:shadow-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/40 focus-visible:ring-offset-2 focus-visible:ring-offset-bg;
+  }
+
+  .link {
+    @apply underline decoration-border underline-offset-4 hover:decoration-muted;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .btn,
+    .pill,
+    .icon-btn {
+      transform: none !important;
+      transition: none !important;
+    }
+  }
+}
