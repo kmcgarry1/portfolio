@@ -32,13 +32,25 @@ const liveDomain = computed(() => {
 
 const projectIcon = computed(() => iconMap[props.project.visual.icon])
 const previewPaletteClass = computed(() => `project-preview--${props.project.visual.palette}`)
-const previewPatternClass = computed(() => `project-preview__pattern--${props.project.visual.pattern}`)
 </script>
 
 <template>
   <article class="project-card surface-primary">
-    <div class="project-preview" :class="previewPaletteClass">
-      <div class="project-preview__pattern" :class="previewPatternClass" />
+    <a
+      class="project-preview block"
+      :class="previewPaletteClass"
+      :href="project.liveUrl"
+      target="_blank"
+      rel="noreferrer"
+      :aria-label="`Open ${project.name} live demo`"
+    >
+      <img
+        class="project-preview__image"
+        :src="project.visual.snapshotUrl"
+        :alt="`${project.name} site snapshot`"
+        loading="lazy"
+      />
+      <div class="project-preview__tint" />
       <div class="project-preview__glow" />
 
       <div class="relative flex items-start justify-between gap-3 p-5 sm:p-6">
@@ -56,7 +68,7 @@ const previewPatternClass = computed(() => `project-preview__pattern--${props.pr
           Live
         </span>
       </div>
-    </div>
+    </a>
 
     <div class="p-5 sm:p-6">
       <div class="min-w-0">

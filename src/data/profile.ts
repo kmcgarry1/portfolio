@@ -23,13 +23,12 @@ export type Project = {
   visual: {
     icon: ProjectVisualIcon
     palette: ProjectVisualPalette
-    pattern: ProjectVisualPattern
+    snapshotUrl: string
   }
 }
 
 export type ProjectVisualIcon = 'search' | 'clock' | 'shield' | 'shuffle'
 export type ProjectVisualPalette = 'lime' | 'sky' | 'rose' | 'amber'
-export type ProjectVisualPattern = 'grid' | 'arc' | 'orbit' | 'stack'
 
 export const profile = {
   name: 'Kevin McGarry',
@@ -101,7 +100,7 @@ export const profile = {
       visual: {
         icon: 'search',
         palette: 'lime',
-        pattern: 'grid',
+        snapshotUrl: '/project-snapshots/commander-scout.webp',
       },
     },
     {
@@ -118,7 +117,7 @@ export const profile = {
       visual: {
         icon: 'clock',
         palette: 'amber',
-        pattern: 'arc',
+        snapshotUrl: '/project-snapshots/figure-drawing-slideshow.webp',
       },
     },
     {
@@ -135,7 +134,7 @@ export const profile = {
       visual: {
         icon: 'shield',
         palette: 'rose',
-        pattern: 'orbit',
+        snapshotUrl: '/project-snapshots/daggerheart-session-manager.webp',
       },
     },
     {
@@ -152,7 +151,7 @@ export const profile = {
       visual: {
         icon: 'shuffle',
         palette: 'sky',
-        pattern: 'stack',
+        snapshotUrl: '/project-snapshots/randomander.webp',
       },
     },
   ] satisfies Project[],
