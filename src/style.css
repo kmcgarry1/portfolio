@@ -434,7 +434,7 @@
     transition:
       transform 420ms cubic-bezier(0.2, 0.8, 0.2, 1),
       filter 320ms ease;
-    filter: saturate(0.94) contrast(1.02);
+    filter: blur(1.5px) saturate(0.94) contrast(1.02);
   }
 
   .project-preview__tint {
@@ -455,7 +455,7 @@
 
   .project-card:hover .project-preview__image {
     transform: scale(1.04) translateY(-2px);
-    filter: saturate(1) contrast(1.04);
+    filter: blur(1px) saturate(1) contrast(1.04);
   }
 
   .project-preview--lime {
