@@ -19,7 +19,17 @@ export type Project = {
   liveUrl: string
   repoUrl: string
   tags: string[]
+  highlights: string[]
+  visual: {
+    icon: ProjectVisualIcon
+    palette: ProjectVisualPalette
+    pattern: ProjectVisualPattern
+  }
 }
+
+export type ProjectVisualIcon = 'search' | 'clock' | 'shield' | 'shuffle'
+export type ProjectVisualPalette = 'lime' | 'sky' | 'rose' | 'amber'
+export type ProjectVisualPattern = 'grid' | 'arc' | 'orbit' | 'stack'
 
 export const profile = {
   name: 'Kevin McGarry',
@@ -27,6 +37,8 @@ export const profile = {
   location: 'Douglas, Cork, Ireland',
   email: 'kevin.mc.garry.13@gmail.com',
   phone: '+353 87 916 1786',
+  availability:
+    'Open to frontend roles focused on Vue, TypeScript, and product UI.',
   github: {
     label: 'kmcgarry1',
     url: 'https://github.com/kmcgarry1',
@@ -36,22 +48,22 @@ export const profile = {
     url: 'https://www.linkedin.com/in/kevin-mcgarry-7b6a9333/',
   },
   summary:
-    'Front-End Developer with 7+ years of experience specializing in Vue.js, TypeScript, and Mapbox. Strong background in visual media and game design, with a focus on bridging creative and technical teams to deliver engaging, performant, user-focused applications.',
+    'Frontend developer with 7+ years building Vue, TypeScript, and map-based product interfaces.',
   focusAreas: [
     {
       title: 'Maps & Data Visualization',
       description:
-        'Mapbox GL JS integrations, mapping pipelines, and tools for review, editing, and quality control.',
+        'Mapbox work, geospatial tooling, and data-led interfaces.',
     },
     {
       title: 'Dashboards & Admin Tools',
       description:
-        'Component-driven dashboards, admin interfaces, and configuration tooling for client solutions.',
+        'Dashboards, admin flows, and configuration tools.',
     },
     {
       title: 'Performance & UX',
       description:
-        'Fast, accessible UIs with an emphasis on maintainable architecture and smooth collaboration.',
+        'Fast, clear, maintainable frontend systems.',
     },
   ],
   skills: {
@@ -67,14 +79,10 @@ export const profile = {
       title: 'Digital Cartographer and Frontend Developer',
       period: '2017 — 2025',
       highlights: [
-        'Co-led the design and implementation of custom Mapbox integrations and mapping pipelines for client solutions.',
-        'Progressed from Digital Cartographer to Front-End Developer, building Vue.js + TypeScript component architecture.',
-        'Led the frontend implementation of new dashboard and admin features.',
-        'Created internal map review and editing tools for quality control and data visualization.',
-        'Built a client dashboard administration tool to manage data integration and configuration.',
-        'Collaborated on AI-driven front-end interfaces to visualise and interact with client datasets.',
-        'Authored technical documentation and internal guides to support onboarding and developer efficiency.',
-        'Contributed to internal component libraries to improve consistency and re-usability across projects.',
+        'Built Vue and TypeScript component architecture for internal and client tools.',
+        'Shipped dashboards, admin flows, and map-based product features.',
+        'Created internal review and editing tools for data quality workflows.',
+        'Contributed to reusable UI patterns and developer documentation.',
       ],
     },
   ] satisfies Experience[],
@@ -82,34 +90,70 @@ export const profile = {
     {
       name: 'Commander Scout',
       description:
-        'Upload a Deckbox CSV, compare it against EDHREC commander lists, and layer in Scryfall data to spot what you already own.',
+        'Compare your collection against EDHREC decks.',
       liveUrl: 'https://edhrec-compare.vercel.app',
       repoUrl: 'https://github.com/kmcgarry1/edhrec-compare',
       tags: ['Vue 3', 'TypeScript', 'Scryfall', 'CSV Parsing'],
+      highlights: [
+        'Uploads Deckbox CSV exports and highlights owned cards.',
+        'Adds Scryfall pricing and card data.',
+      ],
+      visual: {
+        icon: 'search',
+        palette: 'lime',
+        pattern: 'grid',
+      },
     },
     {
       name: 'Figure Drawing Slideshow',
       description:
-        'A studio-style figure drawing tool with bulk image uploads, class presets, timed sessions, remote controls, and saved session setups.',
+        'A figure drawing timer for practice sessions.',
       liveUrl: 'https://simple-figure-drawing-tool.vercel.app',
       repoUrl: 'https://github.com/kmcgarry1/simple-figure-drawing-tool',
       tags: ['Vue 3', 'Vite', 'Testing', 'Accessibility'],
+      highlights: [
+        'Supports bulk uploads, class presets, and timed pose blocks.',
+        'Built with automated checks and a cleaner setup flow.',
+      ],
+      visual: {
+        icon: 'clock',
+        palette: 'amber',
+        pattern: 'arc',
+      },
     },
     {
       name: 'Daggerheart Session Manager',
       description:
-        'A real-time companion app for Daggerheart tables with share codes, countdowns, fear tracking, and Firebase-backed session sync.',
+        'A real-time companion app for Daggerheart sessions.',
       liveUrl: 'https://daggerheart-session-manager.vercel.app',
       repoUrl: 'https://github.com/kmcgarry1/daggerheart-session-manager',
       tags: ['Vue 3', 'Firebase', 'Realtime', 'TypeScript'],
+      highlights: [
+        'Uses join codes and Firebase sync across devices.',
+        'Tracks session state, fear, and countdowns live.',
+      ],
+      visual: {
+        icon: 'shield',
+        palette: 'rose',
+        pattern: 'orbit',
+      },
     },
     {
       name: 'Randomander',
       description:
-        'A Commander randomizer with multiple draw modes, EDHREC and Scryfall integrations, saved pulls, and persistent local history.',
+        'A Commander randomizer for deck-building ideas.',
       liveUrl: 'https://randomander.vercel.app',
       repoUrl: 'https://github.com/kmcgarry1/randomander',
       tags: ['Vue 3', 'Pinia', 'EDHREC', 'Local Storage'],
+      highlights: [
+        'Supports multiple draw modes in one focused UI.',
+        'Stores history and saved pulls locally.',
+      ],
+      visual: {
+        icon: 'shuffle',
+        palette: 'sky',
+        pattern: 'stack',
+      },
     },
   ] satisfies Project[],
   education: [

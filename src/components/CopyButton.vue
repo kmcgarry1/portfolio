@@ -25,7 +25,7 @@ async function copy() {
 <template>
   <button
     type="button"
-    class="btn-ghost -mr-2 rounded-lg px-2 py-2 text-muted hover:text-fg"
+    class="icon-btn -mr-1 h-9 w-9 p-0"
     :aria-label="`Copy ${label}`"
     @click="copy"
   >
