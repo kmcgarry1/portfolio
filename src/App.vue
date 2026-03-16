@@ -5,9 +5,11 @@ import ContactForm from "./components/ContactForm.vue";
 import ThemeToggle from "./components/ThemeToggle.vue";
 import { ArrowDown, Github, Linkedin } from "lucide-vue-next";
 import { profile } from "./data/profile";
+import { Analytics } from '@vercel/analytics/vue';
 </script>
 
 <template>
+  <Analytics />
   <a
     href="#content"
     class="sr-only focus:not-sr-only focus:fixed focus:left-6 focus:top-6 focus:z-50 focus:rounded-xl focus:bg-bg focus:px-4 focus:py-3 focus:text-sm focus:font-medium focus:shadow-soft focus:outline-none focus:ring-2 focus:ring-brand/40"
