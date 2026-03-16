@@ -1,11 +1,26 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { AppWindow, ExternalLink, Github } from 'lucide-vue-next'
+import {
+  CheckCircle2,
+  Clock3,
+  ExternalLink,
+  Github,
+  Search,
+  Shield,
+  Shuffle,
+} from 'lucide-vue-next'
 import type { Project } from '../data/profile'
 
 const props = defineProps<{
   project: Project
 }>()
+
+const iconMap = {
+  search: Search,
+  clock: Clock3,
+  shield: Shield,
+  shuffle: Shuffle,
+} as const
 
 const liveDomain = computed(() => {
   try {
@@ -15,66 +30,94 @@ const liveDomain = computed(() => {
   }
 })
 
-const repoSlug = computed(() => {
-  try {
-    const url = new URL(props.project.repoUrl)
-    return url.pathname.replace(/^\//, '')
-  } catch {
-    return props.project.repoUrl
-  }
-})
+const projectIcon = computed(() => iconMap[props.project.visual.icon])
+const previewPaletteClass = computed(() => `project-preview--${props.project.visual.palette}`)
 </script>
 
 <template>
-  <article class="group card relative overflow-hidden p-5 transition hover:-translate-y-0.5 hover:border-muted/40 sm:p-6">
-    <div aria-hidden="true" class="pointer-events-none absolute -inset-px opacity-0 transition group-hover:opacity-100">
-      <div
-        class="absolute inset-0 bg-[radial-gradient(70%_60%_at_30%_0%,rgb(var(--brand)/0.16)_0%,transparent_60%),radial-gradient(60%_50%_at_85%_15%,rgb(var(--accent)/0.14)_0%,transparent_55%)]"
+  <article class="project-card surface-primary">
+    <a
+      class="project-preview block"
+      :class="previewPaletteClass"
+      :href="project.liveUrl"
+      target="_blank"
+      rel="noreferrer"
+      :aria-label="`Open ${project.name} live demo`"
+    >
+      <img
+        class="project-preview__image"
+        :src="project.visual.snapshotUrl"
+        :alt="`${project.name} site snapshot`"
+        loading="lazy"
       />
-    </div>
+      <div class="project-preview__tint" />
+      <div class="project-preview__glow" />
 
-    <div class="relative flex items-start justify-between gap-4">
-      <div class="min-w-0">
-        <div class="flex items-center gap-3">
-          <div
-            class="grid h-10 w-10 place-items-center rounded-xl bg-gradient-to-br from-brand to-accent text-white shadow-soft"
-            aria-hidden="true"
-          >
-            <AppWindow class="h-5 w-5" aria-hidden="true" />
-          </div>
-
-          <div class="min-w-0">
-            <h3 class="truncate text-lg font-semibold tracking-tight">
-              {{ project.name }}
-            </h3>
-            <p class="mt-0.5 truncate text-sm text-muted">
-              {{ liveDomain }}
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="flex items-center gap-2">
-        <span
-          class="hidden items-center gap-2 rounded-full border border-border bg-bg/50 px-3 py-1 text-xs font-medium text-muted sm:inline-flex"
+      <div class="relative flex items-start justify-between gap-3 p-5 sm:p-6">
+        <div
+          class="surface-subtle grid h-11 w-11 place-items-center rounded-2xl text-brand"
+          aria-hidden="true"
         >
-          <span class="h-2 w-2 animate-pulse rounded-full bg-emerald-500/80" aria-hidden="true" />
+          <component :is="projectIcon" class="h-5 w-5" aria-hidden="true" />
+        </div>
+
+        <span
+          class="surface-subtle hidden items-center gap-2 rounded-full px-3 py-1 text-xs font-medium text-fg/80 sm:inline-flex"
+        >
+          <span class="h-2 w-2 animate-pulse rounded-full bg-brand/90" aria-hidden="true" />
           Live
         </span>
+      </div>
+    </a>
 
+    <div class="p-5 sm:p-6">
+      <div class="min-w-0">
+        <h3 class="truncate text-lg font-semibold tracking-tight text-fg">
+          {{ project.name }}
+        </h3>
+        <p class="mt-1 truncate text-sm text-muted">
+          {{ liveDomain }}
+        </p>
+      </div>
+
+      <p
+        class="mt-4 text-sm leading-relaxed text-muted [display:-webkit-box] [-webkit-line-clamp:3] [-webkit-box-orient:vertical] overflow-hidden"
+      >
+        {{ project.description }}
+      </p>
+
+      <ul class="mt-5 grid gap-2">
+        <li
+          v-for="highlight in project.highlights"
+          :key="highlight"
+          class="flex items-start gap-3 text-sm leading-relaxed text-muted"
+        >
+          <CheckCircle2 class="mt-0.5 h-4 w-4 flex-none text-brand" aria-hidden="true" />
+          <span>{{ highlight }}</span>
+        </li>
+      </ul>
+
+      <div class="mt-5 flex flex-wrap items-center gap-2">
+        <span v-for="tag in project.tags" :key="tag" class="chip">
+          {{ tag }}
+        </span>
+      </div>
+
+      <div class="mt-6 flex items-center gap-2">
         <a
-          class="btn-ghost h-10 w-10 rounded-xl p-0 text-muted hover:text-fg"
+          class="btn-secondary min-w-[7.5rem]"
           :href="project.liveUrl"
           target="_blank"
           rel="noreferrer"
           aria-label="Open live demo"
           title="Open live demo"
         >
-          <ExternalLink class="mx-auto h-4 w-4" aria-hidden="true" />
+          <ExternalLink class="h-4 w-4" aria-hidden="true" />
+          <span>Live demo</span>
         </a>
 
         <a
-          class="btn-ghost h-10 w-10 rounded-xl p-0 text-muted hover:text-fg"
+          class="icon-btn h-10 w-10 p-0"
           :href="project.repoUrl"
           target="_blank"
           rel="noreferrer"
@@ -84,22 +127,6 @@ const repoSlug = computed(() => {
           <Github class="mx-auto h-4 w-4" aria-hidden="true" />
         </a>
       </div>
-    </div>
-
-    <p
-      class="relative mt-4 text-sm leading-relaxed text-muted [display:-webkit-box] [-webkit-line-clamp:2] [-webkit-box-orient:vertical] overflow-hidden"
-    >
-      {{ project.description }}
-    </p>
-
-    <div class="relative mt-4 flex flex-wrap items-center gap-2">
-      <a :href="project.repoUrl" target="_blank" rel="noreferrer" class="chip hover:text-fg">
-        <Github class="h-4 w-4" aria-hidden="true" />
-        <span class="truncate">{{ repoSlug }}</span>
-      </a>
-      <span v-for="tag in project.tags" :key="tag" class="chip">
-        {{ tag }}
-      </span>
     </div>
   </article>
 </template>

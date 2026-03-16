@@ -53,7 +53,7 @@ function submit() {
         v-model="name"
         type="text"
         autocomplete="name"
-        class="w-full rounded-xl border border-border bg-bg/50 px-4 py-3 text-sm text-fg placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-brand/30"
+        class="surface-subtle w-full rounded-xl px-4 py-3 text-sm text-fg placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-brand/30"
         placeholder="Your name"
         required
         :disabled="submitting"
@@ -67,7 +67,7 @@ function submit() {
         v-model="email"
         type="email"
         autocomplete="email"
-        class="w-full rounded-xl border border-border bg-bg/50 px-4 py-3 text-sm text-fg placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-brand/30"
+        class="surface-subtle w-full rounded-xl px-4 py-3 text-sm text-fg placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-brand/30"
         placeholder="you@example.com"
         required
         :disabled="submitting"
@@ -80,7 +80,7 @@ function submit() {
         id="message"
         v-model="message"
         rows="5"
-        class="w-full resize-none rounded-xl border border-border bg-bg/50 px-4 py-3 text-sm text-fg placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-brand/30"
+        class="surface-subtle w-full resize-none rounded-xl px-4 py-3 text-sm text-fg placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-brand/30"
         placeholder="Tell me a bit about what you’re building…"
         required
         :disabled="submitting"
