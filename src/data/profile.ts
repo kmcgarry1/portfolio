@@ -80,33 +80,36 @@ export const profile = {
   ] satisfies Experience[],
   projects: [
     {
-      name: 'pokeball-matcher-react',
-      description: 'Pick a Kanto Pokémon and see which Poké Balls it belongs in.',
-      liveUrl: 'https://pokeball-matcher-react.vercel.app',
-      repoUrl: 'https://github.com/kmcgarry1/pokeball-matcher-react',
-      tags: ['Next.js', 'TypeScript', 'PokéAPI'],
-    },
-    {
-      name: 'edhrec-compare',
+      name: 'Commander Scout',
       description:
-        'Compare a Deckbox CSV with EDHREC data to see what cards you own that are most used for a commander.',
+        'Upload a Deckbox CSV, compare it against EDHREC commander lists, and layer in Scryfall data to spot what you already own.',
       liveUrl: 'https://edhrec-compare.vercel.app',
       repoUrl: 'https://github.com/kmcgarry1/edhrec-compare',
-      tags: ['Vue', 'Vite', 'EDHREC', 'Scryfall'],
+      tags: ['Vue 3', 'TypeScript', 'Scryfall', 'CSV Parsing'],
     },
     {
-      name: 'daggerheart-dm-screen',
-      description: 'A lightweight DM screen UI for Daggerheart sessions.',
-      liveUrl: 'https://daggerheart-dm-screen.vercel.app',
-      repoUrl: 'https://github.com/kmcgarry1/daggerheart-dm-screen',
-      tags: ['Vue 3', 'Vite', 'Daggerheart'],
+      name: 'Figure Drawing Slideshow',
+      description:
+        'A studio-style figure drawing tool with bulk image uploads, class presets, timed sessions, remote controls, and saved session setups.',
+      liveUrl: 'https://simple-figure-drawing-tool.vercel.app',
+      repoUrl: 'https://github.com/kmcgarry1/simple-figure-drawing-tool',
+      tags: ['Vue 3', 'Vite', 'Testing', 'Accessibility'],
     },
     {
-      name: 'prepboard',
-      description: 'Track multiple timers for cooking with a simple, focused UI.',
-      liveUrl: 'https://prepboard-green.vercel.app',
-      repoUrl: 'https://github.com/kmcgarry1/prepboard',
-      tags: ['Vue 3', 'TypeScript', 'Timers'],
+      name: 'Daggerheart Session Manager',
+      description:
+        'A real-time companion app for Daggerheart tables with share codes, countdowns, fear tracking, and Firebase-backed session sync.',
+      liveUrl: 'https://daggerheart-session-manager.vercel.app',
+      repoUrl: 'https://github.com/kmcgarry1/daggerheart-session-manager',
+      tags: ['Vue 3', 'Firebase', 'Realtime', 'TypeScript'],
+    },
+    {
+      name: 'Randomander',
+      description:
+        'A Commander randomizer with multiple draw modes, EDHREC and Scryfall integrations, saved pulls, and persistent local history.',
+      liveUrl: 'https://randomander.vercel.app',
+      repoUrl: 'https://github.com/kmcgarry1/randomander',
+      tags: ['Vue 3', 'Pinia', 'EDHREC', 'Local Storage'],
     },
   ] satisfies Project[],
   education: [

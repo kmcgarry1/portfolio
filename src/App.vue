@@ -98,10 +98,12 @@ import { profile } from "./data/profile";
               <h2
                 class="mt-2 text-3xl font-semibold tracking-tight sm:text-4xl"
               >
-                Live demos
+                Selected live work
               </h2>
               <p class="mt-3 max-w-prose text-sm text-muted">
-                Four small personal projects shipped and available online.
+                {{ profile.projects.length }} recent builds chosen from my live
+                Vercel projects, with an emphasis on richer UX, external
+                integrations, and tools people can actually use.
               </p>
             </div>
 
