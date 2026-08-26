@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kevin McGarry - Frontend Engineer CV</title>
+    <style>
+      @page { size: A4; margin: 0; }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        background: #e8ece7;
+        color: #181c18;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 9.2pt;
+        line-height: 1.42;
+      }
+      .page {
+        width: 210mm;
+        min-height: 297mm;
+        margin: 0 auto;
+        padding: 14mm 16mm 13mm;
+        background: #f8faf7;
+      }
+      header {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 59mm;
+        gap: 12mm;
+        align-items: end;
+        padding-bottom: 9mm;
+        border-bottom: 1px solid #cfd7cf;
+      }
+      .mark {
+        width: 11mm;
+        height: 11mm;
+        display: grid;
+        place-items: center;
+        margin-bottom: 5mm;
+        border-radius: 1.5mm;
+        background: #181c18;
+        color: #f8faf7;
+        font-size: 8pt;
+        font-weight: 700;
+      }
+      h1 { margin: 0; font-size: 29pt; line-height: 1; letter-spacing: 0; }
+      .role { margin: 2.5mm 0 0; color: #5b655c; font-size: 13.5pt; font-weight: 700; }
+      .contact { display: grid; gap: 1.4mm; font-size: 8pt; font-style: normal; }
+      a { color: inherit; text-decoration: none; }
+      .layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 54mm;
+        gap: 12mm;
+        padding-top: 9mm;
+      }
+      section + section { margin-top: 7mm; }
+      h2 {
+        margin: 0 0 3.2mm;
+        color: #5b655c;
+        font-size: 7.5pt;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+      }
+      h3 { margin: 0; font-size: 11pt; line-height: 1.2; }
+      p { margin: 0; }
+      .summary { max-width: 115mm; font-size: 9.6pt; line-height: 1.5; }
+      .job-meta, .project-meta {
+        display: flex;
+        justify-content: space-between;
+        gap: 5mm;
+        margin: 1.2mm 0 3mm;
+        color: #5b655c;
+        font-size: 8pt;
+      }
+      ul { margin: 0; padding-left: 4.3mm; }
+      li { margin-bottom: 1.6mm; padding-left: 1mm; }
+      .projects { display: grid; grid-template-columns: 1fr 1fr; gap: 5mm; }
+      .project {
+        padding-top: 3mm;
+        border-top: 1px solid #cfd7cf;
+      }
+      .project p { color: #5b655c; font-size: 8.3pt; }
+      .project a { display: inline-block; margin-top: 2mm; font-size: 7.8pt; font-weight: 700; }
+      .sidebar {
+        padding-left: 7mm;
+        border-left: 1px solid #cfd7cf;
+      }
+      .skill-group + .skill-group { margin-top: 4.5mm; }
+      .skill-group h3 { margin-bottom: 1.8mm; font-size: 8.5pt; }
+      .skill-group p { color: #5b655c; font-size: 8.3pt; line-height: 1.55; }
+      .education p { color: #5b655c; font-size: 8.3pt; }
+      .accent-rule { width: 23mm; height: 1.5mm; margin-bottom: 4mm; background: #b8ef4e; }
+      .availability {
+        margin-top: 7mm;
+        padding-top: 4mm;
+        border-top: 1px solid #cfd7cf;
+        color: #5b655c;
+        font-size: 8pt;
+      }
+      @media print {
+        body { background: transparent; }
+        .page { margin: 0; }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <header>
+        <div>
+          <div class="mark" aria-hidden="true">KM</div>
+          <h1>Kevin McGarry</h1>
+          <p class="role">Frontend Engineer - Data-heavy SaaS products</p>
+        </div>
+        <address class="contact">
+          <span>Douglas, Cork, Ireland</span>
+          <a href="tel:+353879161786">+353 87 916 1786</a>
+          <a href="mailto:kevin.mc.garry.13@gmail.com">kevin.mc.garry.13@gmail.com</a>
+          <a href="https://portfolio-ecru-rho-56.vercel.app">portfolio-ecru-rho-56.vercel.app</a>
+          <a href="https://github.com/kmcgarry1">github.com/kmcgarry1</a>
+          <a href="https://www.linkedin.com/in/kevin-mcgarry-7b6a9333/">LinkedIn / kevin-mcgarry</a>
+        </address>
+      </header>
+
+      <div class="layout">
+        <div>
+          <section>
+            <div class="accent-rule"></div>
+            <h2>Profile</h2>
+            <p class="summary">
+              Frontend engineer with 7+ years building Vue, TypeScript, dashboard, and map-based interfaces. Experienced in turning specialist data and operational workflows into clear product experiences, supported by reusable UI architecture, testing, accessibility, and technical documentation.
+            </p>
+          </section>
+
+          <section>
+            <h2>Commercial experience</h2>
+            <h3>RiskTech Ltd</h3>
+            <div class="job-meta">
+              <strong>Digital Cartographer and Frontend Developer</strong>
+              <span>2017 - 2025</span>
+            </div>
+            <ul>
+              <li>Progressed from digital cartography into frontend development with Vue, TypeScript, and component-based architecture.</li>
+              <li>Co-led custom Mapbox integrations and mapping pipelines for client solutions.</li>
+              <li>Led frontend implementation for dashboard and administration features.</li>
+              <li>Built a client dashboard administration tool for data integration and configuration.</li>
+              <li>Created map review and editing tools for internal quality control and data visualization.</li>
+              <li>Collaborated on AI-driven interfaces for visualizing and interacting with client datasets.</li>
+              <li>Contributed to component libraries, onboarding documentation, and developer guides.</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>Selected engineering work</h2>
+            <div class="projects">
+              <article class="project">
+                <h3>Commander Scout</h3>
+                <div class="project-meta"><span>Vue / TypeScript</span><span>Active</span></div>
+                <p>Data-comparison product with typed API clients, IndexedDB caching, virtualized tables, privacy controls, unit/E2E coverage, and CI bundle budgets.</p>
+                <a href="https://portfolio-ecru-rho-56.vercel.app/work/commander-scout">Read case study</a>
+              </article>
+              <article class="project">
+                <h3>Figure Drawing Slideshow</h3>
+                <div class="project-meta"><span>Vue / Workflow UI</span><span>Active</span></div>
+                <p>Timed-session product with quick and structured setup paths, keyboard/focus support, Playwright accessibility/visual checks, CI, and observability.</p>
+                <a href="https://portfolio-ecru-rho-56.vercel.app/work/figure-drawing-slideshow">Read case study</a>
+              </article>
+            </div>
+          </section>
+        </div>
+
+        <aside class="sidebar">
+          <section>
+            <h2>Core technology</h2>
+            <div class="skill-group">
+              <h3>Frontend</h3>
+              <p>Vue.js, TypeScript, JavaScript, HTML5, CSS3, Sass</p>
+            </div>
+            <div class="skill-group">
+              <h3>Maps and data</h3>
+              <p>Mapbox GL JS, data visualization, geospatial workflows</p>
+            </div>
+            <div class="skill-group">
+              <h3>Product quality</h3>
+              <p>Vitest, Playwright, accessibility testing, performance budgets, CI workflows</p>
+            </div>
+            <div class="skill-group">
+              <h3>Platform and workflow</h3>
+              <p>Node.js, Firebase, Git, agile delivery, Figma, technical documentation</p>
+            </div>
+          </section>
+
+          <section class="education">
+            <h2>Education</h2>
+            <h3>BA Honours in Visual Media - Games</h3>
+            <p>Ballyfermot College</p>
+            <p>2013 - 2015</p>
+          </section>
+
+          <section>
+            <h2>Additional</h2>
+            <div class="skill-group">
+              <h3>Product areas</h3>
+              <p>Dashboards, admin workflows, client configuration, map products, data review tooling</p>
+            </div>
+            <div class="skill-group">
+              <h3>Interests</h3>
+              <p>Tabletop RPGs, miniature painting, football, cooking</p>
+            </div>
+          </section>
+
+          <p class="availability">Open to frontend roles focused on Vue, TypeScript, and product UI.</p>
+        </aside>
+      </div>
+    </main>
+  </body>
+</html>

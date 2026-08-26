@@ -8,14 +8,12 @@ const year = new Date().getFullYear()
 </script>
 
 <template>
-  <footer class="pb-6 pt-2">
+  <footer class="border-t border-border pb-[max(2rem,env(safe-area-inset-bottom))] pt-8 sm:pt-10">
     <div class="container-page">
-      <div
-        class="surface-primary flex flex-col gap-3 px-6 py-6 text-sm text-muted md:flex-row md:items-center md:justify-between"
-      >
+      <div class="flex flex-col gap-4 text-sm text-muted md:flex-row md:items-end md:justify-between">
         <div class="grid gap-1">
           <p>© {{ year }} {{ props.name }}</p>
-          <p class="text-xs uppercase tracking-[0.2em] text-muted/80">
+          <p class="text-xs uppercase text-muted/80">
             Built with Vue, TypeScript, Vite, and Tailwind CSS.
           </p>
         </div>
